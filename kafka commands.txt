@@ -1,0 +1,20 @@
+Topic with replication factor 1
+----------------------------------
+bin/kafka-topics.sh --list --zookeeper ip-172-31-6-58.ap-south-1.compute.internal:2181
+
+bin/kafka-topics.sh --create --zookeeper ip-172-31-6-58.ap-south-1.compute.internal:2181 --replication-factor 1 --partitions 1 --topic demo_topic
+
+bin/kafka-console-producer.sh --broker-list ip-172-31-11-123.ap-south-1.compute.internal:6667 --topic demo_topic
+
+bin/kafka-console-consumer.sh --bootstrap-server ip-172-31-11-123.ap-south-1.compute.internal:6667 --from-beginning --topic demo_topic
+
+bin/kafka-topics.sh --describe --zookeeper ip-172-31-6-58.ap-south-1.compute.internal:2181 --topic demo_topic
+
+----------
+Topic with replication factor 3
+
+bin/kafka-topics.sh --create --zookeeper ip-172-31-6-58.ap-south-1.compute.internal:2181 --replication-factor 3 --partitions 1 --topic demo_rep_topic
+
+Topic with replication factor 3 
+----------------------------------
+bin/kafka-topics.sh --create --zookeeper ip-172-31-6-58.ap-south-1.compute.internal:2181 --replication-factor 3 --partitions 1 --topic demo_topic_four_part
